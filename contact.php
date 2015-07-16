@@ -1,9 +1,9 @@
 <?php
-$sendto   = "support@ruddernation.com";
+$sendto   = "Enter Your Email Address Here!";
 $subject  = "New Feedback Message";
 $email = $_POST['email'];
+$name  = $_POST['name'];
 $enquiry = $_POST['enquiry']; // I have this set to default but you can change it to what you like, It's just I have a dropdown menu for this set.
-$name  = nl2br($_POST['name']);
 $content  = nl2br($_POST['msg']);
 $headers  = "From: " . strip_tags($email) . "\r\n";
 $headers .= "Reply-To: ". strip_tags($email) . "\r\n";
