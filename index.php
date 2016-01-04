@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <link rel=stylesheet type="text/css" media=all href="css/contact.css">
 <link rel=stylesheet type="text/css" media=all href="css/jquery.fancybox.css">
+<link rel="shortcut icon" href="https://www.ruddernation.com/info/images/ico/favicon.ico">
 <script src="js/jquery/jquery-latest.min.js"></script>
 <script src="js/jquery.fancybox.js"></script>
 <script src="js/contact.js"></script>
