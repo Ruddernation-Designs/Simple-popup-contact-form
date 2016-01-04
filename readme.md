@@ -7,5 +7,4 @@ I've also added most of the security features to the main javascript file so it'
 ###<a href="https://ruddernation-designs.github.io/css-contact-form/" target="_blank">Demo</a>
 
 ##Info
-<br/>
 <p>I will be adding the Google ReCaptcha to this contact form in the next few day's.</p>
