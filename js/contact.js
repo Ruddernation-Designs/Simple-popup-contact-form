@@ -13,9 +13,4 @@ else if(msglen>=4){$("#msg").removeClass("error");}
 if(mailvalid==true&&msglen>=4){$("#send").replaceWith("<em>sending...</em>");
 $.ajax({type:'POST',url:'contact.php',data:$("#contact").serialize(),success:function(data){if(data=="true"){
   $("#contact").fadeOut("fast",function(){$(this).before("<p><strong>Success! Your message has been sent, thank you.</strong></p>");
-  setTimeout("$.fancybox.close()",1000);
-});
-}}
-});
-}});
-});
+  setTimeout("$.fancybox.close()",1000);});}}});}});});
