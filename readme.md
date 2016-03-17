@@ -5,4 +5,3 @@ This is now ready for using, I've added basic enquiry info in to the form, You c
 I've also added most of the security features to the main javascript file so it'll remove the most malicious tags.</p>
 
 ###<a href="https://ruddernation-designs.github.io/css-contact-form/" target="_blank">Demo</a>
-###<a href="https://github.com/Ruddernation-Designs/ruddernation-designs.github.io/wiki" target="_blank">Wiki</a>
