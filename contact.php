@@ -1,14 +1,24 @@
 <?php
-$sendto   = "Enter Your Email Address Here!";
+if(isset($_POST['g-recaptcha-response'])){
+          $captcha=$_POST['g-recaptcha-response'];
+        }
+$sendto   = "Put your email here!";
 $subject  = "New Feedback Message";
 $email = $_POST['email'];
 $name  = $_POST['name'];
-$enquiry = $_POST['enquiry']; // I have this set to default but you can change it to what you like, It's just I have a dropdown menu for this set.
+$enquiry = $_POST['enquiry'];
 $content  = nl2br($_POST['msg']);
 $headers  = "From: " . strip_tags($email) . "\r\n";
 $headers .= "Reply-To: ". strip_tags($email) . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
+if(!$captcha){
+          exit; }
+$secretKey = "Google-Site-Key";
+$ip = $_SERVER['REMOTE_ADDR'];
+$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
+$responseKeys = json_decode($response,true);
+	if(intval($responseKeys["success"]) !== 1) {
 
 $ipaddress = $_SERVER['REMOTE_ADDR'];
 	$date = date('d/m/Y');
@@ -25,10 +35,8 @@ $msg .= "<p><strong>Date:</strong> ".$date."</p>\r\n";
 $msg .= "<p><strong>Time:</strong> ".$time."</p>\r\n";
 $msg .= "</body></html>";
 
-
 if(@mail($sendto, $subject, $msg, $headers, $name)) {
 	echo "true";
 } else {
-	echo "false";
-}
-?>
+	echo "false";}
+		}?>
