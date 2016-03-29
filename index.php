@@ -10,9 +10,10 @@
 <script src="js/jquery/jquery-latest.min.js"></script>
 <script src="js/jquery.fancybox.js"></script>
 <script src="js/contact.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
-<a class="modalbox button" title="Any Issues Then Contact Me" href="#inlinetext">Contact</a>
+<button class="modalbox button" href="#inlinetext">Contact</button>
 <!-- Contact -->
 <div id="inlinetext">
 <form id="contact" name="contact" action="#" method="post">
@@ -26,11 +27,11 @@
 <option value="Information" <?php echo ($sr && !$cf['form_ok'] && $cf['posted_form_data']['enquiry'] == 'Information') ? "selected='selected'" : '' ?>>Information</option>
 <option value="Support" <?php echo ($sr && !$cf['form_ok'] && $cf['posted_form_data']['enquiry'] == 'Support') ? "selected='selected'" : '' ?>>Support</option>
 </select>
-<br>
+<br/>
 <label for="msg">Enter a Message</label>
 <textarea id="msg" name="msg" class="txtarea" required></textarea>
-<br>
-<button id="send">Send E-mail</button>
+<div class="g-recaptcha" data-sitekey="Google-Site-Key"></div>
+<button id="send">Submit</button>
 </form>
 </div>
 <!-- /Contact -->
