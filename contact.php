@@ -1,12 +1,12 @@
 <?php
 if(isset($_POST['g-recaptcha-response'])){
-          $captcha=$_POST['g-recaptcha-response'];
+          $captcha=filter_input(INPUT_POST,'g-recaptcha-response');
         }
 $sendto   = "Put your email here!";
 $subject  = "New Feedback Message";
-$email = $_POST['email'];
-$name  = $_POST['name'];
-$enquiry = $_POST['enquiry'];
+$email = filter_input(INPUT_POST,'email');
+$name  = filter_input(INPUT_POST,'name');
+$enquiry = filter_input(INPUT_POST,'enquiry');
 $content  = nl2br($_POST['msg']);
 $headers  = "From: " . strip_tags($email) . "\r\n";
 $headers .= "Reply-To: ". strip_tags($email) . "\r\n";
@@ -15,12 +15,12 @@ $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
 if(!$captcha){
           exit; }
 $secretKey = "Google-Site-Key";
-$ip = $_SERVER['REMOTE_ADDR'];
+$ip = filter_input(INPUT_SERVER,'REMOTE_ADDR');
 $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
 $responseKeys = json_decode($response,true);
 	if(intval($responseKeys["success"]) !== 1) {
 
-$ipaddress = $_SERVER['REMOTE_ADDR'];
+$ipaddress = filter_input(INPUT_SERVER,'REMOTE_ADDR');
 	$date = date('d/m/Y');
 	$time = date('H:i:s');
 
